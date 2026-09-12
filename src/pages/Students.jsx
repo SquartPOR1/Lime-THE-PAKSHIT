@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import StudentCard from '../components/StudentCard.jsx'
 
 function Students() {
@@ -29,21 +30,24 @@ function Students() {
     fetchStudents()
   }, [])
 
+  const stats = [
+    { value: students.length, label: 'Total students' },
+    { value: filteredStudents.length, label: 'Visible now' },
+    { value: search ? 'Filtered' : 'Ready', label: 'Search status' },
+  ]
+
   return (
-    <section>
+    <section className="students-page">
       <div className="page-header">
         <p className="eyebrow">Directory</p>
         <h1>Students</h1>
         <p className="lede">Browse and search the current student records.</p>
       </div>
 
-      {loading && <p className="state-message">Loading students...</p>}
-      {error && <p className="state-message error">{error}</p>}
-
-      {!loading && !error && (
-        <>
+      <div className="toolbar-panel">
+        <div className="toolbar-top">
           <label className="student-search">
-            Search Students:
+            Search Students
             <input
               type="search"
               value={search}
@@ -52,6 +56,26 @@ function Students() {
             />
           </label>
 
+          <Link className="button-primary" to="/students/add">
+            Add Student
+          </Link>
+        </div>
+
+        <div className="stats-grid">
+          {stats.map((stat) => (
+            <div key={stat.label} className="stat-card">
+              <strong>{stat.value}</strong>
+              <span>{stat.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {loading && <p className="state-message">Loading students...</p>}
+      {error && <p className="state-message error">{error}</p>}
+
+      {!loading && !error && (
+        <>
           {filteredStudents.length === 0 ? (
             <p className="state-message empty">No students match your search.</p>
           ) : (

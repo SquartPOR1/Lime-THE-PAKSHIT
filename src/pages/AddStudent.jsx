@@ -10,6 +10,12 @@ const initialFormData = {
   website: '',
 }
 
+const checklist = [
+  'Capture the student name and username.',
+  'Add correct email and contact information.',
+  'Store the website for a complete profile.',
+]
+
 function AddStudent() {
   const [formData, setFormData] = useState(initialFormData)
   const [error, setError] = useState('')
@@ -42,6 +48,7 @@ function AddStudent() {
       )
       setSubmittedStudent(response.data)
       setSuccess('Student submitted successfully.')
+      setFormData(initialFormData)
     } catch {
       setError('Unable to submit student.')
     }
@@ -55,40 +62,54 @@ function AddStudent() {
         <p className="lede">Create a new student record in the demo workspace.</p>
       </div>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="student-name">
-          Name
-          <input id="student-name" name="name" value={formData.name} onChange={handleChange} />
-        </label>
-        <label htmlFor="student-username">
-          Username
-          <input
-            id="student-username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-          />
-        </label>
-        <label htmlFor="student-email">
-          Email
-          <input id="student-email" name="email" value={formData.email} onChange={handleChange} />
-        </label>
-        <label htmlFor="student-phone">
-          Phone
-          <input id="student-phone" name="phone" value={formData.phone} onChange={handleChange} />
-        </label>
-        <label htmlFor="student-website">
-          Website
-          <input
-            id="student-website"
-            name="website"
-            value={formData.website}
-            onChange={handleChange}
-          />
-        </label>
+      <div className="add-student-layout">
+        <aside className="add-student-side">
+          <div className="side-panel">
+            <p className="eyebrow subtle">Quick note</p>
+            <h2>Create a student entry</h2>
+            <ul className="check-list">
+              {checklist.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </aside>
 
-        <button type="submit">Add Student</button>
-      </form>
+        <form className="add-student-form" onSubmit={handleSubmit}>
+          <label htmlFor="student-name">
+            Name
+            <input id="student-name" name="name" value={formData.name} onChange={handleChange} />
+          </label>
+          <label htmlFor="student-username">
+            Username
+            <input
+              id="student-username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+            />
+          </label>
+          <label htmlFor="student-email">
+            Email
+            <input id="student-email" name="email" value={formData.email} onChange={handleChange} />
+          </label>
+          <label htmlFor="student-phone">
+            Phone
+            <input id="student-phone" name="phone" value={formData.phone} onChange={handleChange} />
+          </label>
+          <label htmlFor="student-website">
+            Website
+            <input
+              id="student-website"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+            />
+          </label>
+
+          <button type="submit">Add Student</button>
+        </form>
+      </div>
 
       {error && <p className="state-message error form-error">{error}</p>}
       {success && <p className="form-success">{success}</p>}
