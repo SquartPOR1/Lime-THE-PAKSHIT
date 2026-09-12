@@ -1,0 +1,358 @@
+:root {
+  --ink: #19324a;
+  --muted: #607487;
+  --paper: #ffffff;
+  --canvas: #f5f7f5;
+  --line: #dbe4e2;
+  --teal: #087f73;
+  --teal-dark: #05635b;
+  --coral: #d96c4d;
+  --shadow: 0 14px 35px rgba(25, 50, 74, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--teal-dark);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.portal {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3.5rem 0 5rem;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  color: var(--coral);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0.7rem;
+  color: var(--ink);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  color: var(--ink);
+}
+
+.lede {
+  max-width: 38rem;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1rem max(1rem, calc((100% - 1100px) / 2));
+  background: var(--ink);
+  border-bottom: 4px solid #d5e7c7;
+}
+
+.navbar-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar-brand strong {
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.navbar-brand span {
+  color: #b9cbd0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.navbar-links a {
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.35rem;
+  color: #dce9e8;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  background: #315166;
+  color: #ffffff;
+}
+
+.student-search {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 34rem;
+  margin: 0 0 2rem;
+  color: var(--ink);
+  font-weight: 700;
+  text-align: left;
+}
+
+.student-search input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 3px 10px rgba(25, 50, 74, 0.04);
+}
+
+.student-search input:focus,
+.add-student input:focus {
+  outline: 3px solid rgba(8, 127, 115, 0.18);
+  border-color: var(--teal);
+}
+
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.student-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 16rem;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.student-card p {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.student-card p:first-child {
+  margin-bottom: 1rem;
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+.student-card a,
+.button-primary {
+  display: inline-block;
+  width: fit-content;
+  margin-top: auto;
+  padding: 0.65rem 0.9rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: var(--teal);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.student-card a:hover,
+.button-primary:hover {
+  background: var(--teal-dark);
+}
+
+.state-message {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--paper);
+  color: var(--muted);
+  text-align: left;
+}
+
+.state-message.error,
+.form-error {
+  border-color: #f1c3b7;
+  background: #fff6f3;
+  color: #a63e2d;
+}
+
+.state-message.empty {
+  border-style: dashed;
+}
+
+.student-details {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.student-details-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 2rem 0;
+  padding: 0.5rem 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.student-details-card p {
+  margin: 0;
+  padding: 1rem 0.6rem;
+  border-bottom: 1px solid #edf1ef;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.student-details > a,
+.add-student > a {
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
+.add-student {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.add-student form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin: 2rem 0 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.7rem;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.add-student label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.add-student input {
+  width: 100%;
+  padding: 0.75rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 0.35rem;
+  background: #fbfdfc;
+  color: var(--ink);
+}
+
+.add-student button {
+  grid-column: 1 / -1;
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-radius: 0.35rem;
+  background: var(--teal);
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.add-student button:hover {
+  background: var(--teal-dark);
+}
+
+.form-success {
+  padding: 0.85rem 1rem;
+  border: 1px solid #b7dfc0;
+  border-radius: 0.45rem;
+  background: #f1fbf3;
+  color: #216b31;
+}
+
+.submitted-student {
+  margin: 1.5rem 0;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid #b7dfc0;
+  border-radius: 0.7rem;
+  background: #f8fcf8;
+  text-align: left;
+}
+
+.submitted-student h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.submitted-student p {
+  margin: 0.5rem 0;
+  color: var(--muted);
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .navbar-links {
+    width: 100%;
+  }
+
+  .navbar-links a {
+    flex: 1;
+    text-align: center;
+  }
+
+  .portal {
+    padding-top: 2.5rem;
+  }
+
+  .student-list,
+  .student-details-card,
+  .add-student form {
+    grid-template-columns: 1fr;
+  }
+
+  .add-student button {
+    grid-column: auto;
+  }
+}
